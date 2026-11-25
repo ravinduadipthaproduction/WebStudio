@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en" data-mode="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RA Web Studios | Premium Portfolio & Business Websites</title>
+<meta name="description" content="RA Web Studios builds premium, animated portfolio and business websites. Powered by RA Production.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+:root{--bg:#0b0a09;--fg:#f6f1e8;--mut:#a79d90;--acc:#ff8a4e;--acc2:#ff5fd2;--card:#14110f;--line:#2b2520;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-mode="light"]){--bg:#0b0a09;--fg:#f6f1e8;--mut:#a79d90;--card:#14110f;--line:#2b2520}}
+:root[data-mode="dark"]{--bg:#0b0a09;--fg:#f6f1e8;--mut:#a79d90;--card:#14110f;--line:#2b2520;color-scheme:dark}
+:root[data-mode="light"]{--bg:#f6f1e8;--fg:#14110e;--mut:#6b6358;--card:#fffdf8;--line:#ddd3c3;color-scheme:light}
+*,*:before,*:after{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--fg);font:400 17px/1.55 "Inter Tight",system-ui,sans-serif;overflow-x:hidden;transition:background .5s,color .5s}
+body.lock{overflow:hidden}
+a{color:inherit;text-decoration:none}
+em,.serif{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400}
+.g{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.mono{font:700 12px/1.4 "JetBrains Mono",monospace;letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+section{position:relative;padding:130px 0}
+h2{font-size:clamp(40px,7vw,96px);line-height:.95;letter-spacing:-.045em;font-weight:900}
+h2 em{letter-spacing:-.02em;font-size:1.08em}
+/* cursor */
+.cur,.ring,#trail{position:fixed;pointer-events:none;z-index:9999;left:0;top:0}
+#trail{width:100%;height:100%;z-index:9990}
+.cur{width:8px;height:8px;margin:-4px;border-radius:50%;background:var(--acc)}
+.ring{width:44px;height:44px;margin:-22px;border-radius:50%;border:1.5px solid var(--acc);display:grid;place-items:center;font:700 10px "JetBrains Mono",monospace;letter-spacing:.12em;color:#140d08;transition:width .35s cubic-bezier(.16,1,.3,1),height .35s cubic-bezier(.16,1,.3,1),margin .35s cubic-bezier(.16,1,.3,1),background .3s}
+.ring.h{width:78px;height:78px;margin:-39px;background:#ff8a4e33}
+.ring.v{width:104px;height:104px;margin:-52px;background:var(--acc)}
+.ring.d{width:26px;height:26px;margin:-13px}html:not(.mv) .cur,html:not(.mv) .ring{opacity:0!important}
+@media (pointer:fine){html.cc,html.cc a,html.cc button,html.cc input,html.cc textarea,html.cc select,html.cc label{cursor:none!important}}
+@media (pointer:coarse){.cur,.ring,#trail,.spot{display:none}}
+.spot{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(520px circle at var(--x,50%) var(--y,30%),#ff8a4e1f,transparent 60%)}
+/* preloader */
+#pre{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;pointer-events:none}
+#pre i{position:absolute;left:0;right:0;height:50.5%;background:#0b0a09;transition:transform 1s cubic-bezier(.77,0,.18,1) .15s}
+#pre i:nth-of-type(1){top:0}#pre i:nth-of-type(2){bottom:0}
+#pre.go i:nth-of-type(1){transform:translateY(-101%)}#pre.go i:nth-of-type(2){transform:translateY(101%)}
+#pre .c{position:relative;text-align:center;color:#f6f1e8;transition:opacity .4s}
+#pre.go .c{opacity:0}
+#pre svg{width:120px;height:120px}
+#pre .p{stroke-dasharray:420;stroke-dashoffset:420;animation:dr 1.5s ease forwards}
+@keyframes dr{to{stroke-dashoffset:0}}
+#pre b{display:block;margin-top:18px;font:700 13px "JetBrains Mono",monospace;letter-spacing:.3em}
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:calc(18px + env(safe-area-inset-top,0px)) 0 18px;transition:background .4s,backdrop-filter .4s,transform .5s}
+nav.s{background:color-mix(in srgb,var(--bg) 72%,transparent);backdrop-filter:blur(16px)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-.02em;font-size:18px;line-height:1.05}
+.logo svg{width:42px;height:42px;flex:none;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.logo:hover svg{transform:rotate(-12deg) scale(1.1)}
+.logo small{display:block;font:500 10px "JetBrains Mono",monospace;letter-spacing:.2em;color:var(--mut);text-transform:uppercase;margin-top:2px}
+.links{display:flex;gap:6px;align-items:center}
+.links a{padding:9px 14px;border-radius:30px;font-weight:500;font-size:15px;transition:background .3s}
+.links a:hover{background:var(--line)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:60px;font-weight:700;background:linear-gradient(90deg,var(--acc),var(--acc2));color:#1a0d06;position:relative;overflow:hidden;will-change:transform;border:0;font-size:16px;font-family:inherit}
+.btn:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,#fff7 50%,transparent 65%);transform:translateX(-120%);transition:transform .8s}
+.btn:hover:after{transform:translateX(120%)}
+.btn.o{background:none;border:1.5px solid var(--line);color:var(--fg)}
+.tg{width:46px;height:26px;border-radius:20px;border:1.5px solid var(--line);position:relative;background:none}
+.tg:after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--acc);transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+[data-mode="light"] .tg:after{transform:translateX(20px)}
+@media(max-width:820px){.links a:not(.btn){display:none}}@media(max-width:520px){.logo small{display:none}.links .btn{padding:10px 16px;font-size:14px}.wrap{padding:0 20px}.logo{font-size:16px}.logo svg{width:36px;height:36px}}
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;padding:150px 0 90px;overflow:hidden}
+#mesh{position:absolute;inset:0;width:100%;height:100%}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{font-size:clamp(52px,10.5vw,168px);line-height:.9;letter-spacing:-.055em;font-weight:900}
+.hero h1 em{font-size:1.05em;letter-spacing:-.03em}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .04em .12em}
+.w>span{display:inline-block;transform:translateY(112%) rotate(4deg);transition:transform 1.1s cubic-bezier(.16,1,.3,1)}
+.in .w>span,.w.in>span{transform:none}
+.hero p.lead{max-width:560px;margin:34px 0;color:var(--mut);font-size:20px}
+.cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.badge{display:inline-flex;gap:10px;align-items:center;padding:8px 16px;border:1px solid var(--line);border-radius:40px;margin-bottom:28px;background:color-mix(in srgb,var(--card) 70%,transparent)}
+.badge i{width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 0 #3ddc8488;animation:pu 1.8s infinite}
+@keyframes pu{to{box-shadow:0 0 0 9px #3ddc8400}}
+.float{position:absolute;right:3%;top:58%;z-index:0;width:min(32vw,460px);transform:translateY(-50%);opacity:.5}
+.win{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:0;box-shadow:0 50px 100px #0007,0 0 80px #ff8a4e22;overflow:hidden;transform-style:preserve-3d;will-change:transform}
+.win .bar{display:flex;gap:7px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.win .bar b{width:11px;height:11px;border-radius:50%;background:#5a4d42}
+.win .bd{padding:22px;display:grid;gap:12px}
+.ln{height:12px;border-radius:8px;background:var(--line)}.ln.b{height:34px;width:72%;background:linear-gradient(90deg,var(--acc),var(--acc2));animation:wd 3.6s ease-in-out infinite alternate}
+@keyframes wd{from{width:40%}to{width:84%}}
+.tl{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.tl div{aspect-ratio:1;border-radius:12px;background:var(--line);animation:fl 3s ease-in-out infinite alternate}
+.tl div:nth-child(2){background:linear-gradient(135deg,var(--acc),#c2481a);animation-delay:-.6s}.tl div:nth-child(5){background:linear-gradient(135deg,var(--acc2),#7a2a9e);animation-delay:-1.4s}
+@keyframes fl{to{transform:translateY(-8px)}}
+@media(max-width:1100px){.float{display:none}}
+.scrollcue{position:absolute;left:28px;bottom:34px;z-index:2}
+/* marquee */
+.mq{overflow:hidden;border-block:1px solid var(--line);padding:26px 0;background:var(--card)}
+.mq div{display:flex;width:max-content;padding-right:46px;animation:mq 28s linear infinite;gap:46px;font-size:clamp(34px,5vw,64px);font-weight:900;letter-spacing:-.04em;white-space:nowrap}
+.mq:hover div{animation-play-state:paused}
+.mq span:nth-child(even){font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;color:var(--acc)}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* reveal */
+.rv{opacity:0;transform:translateY(46px);filter:blur(6px);transition:opacity 1s,transform 1.1s cubic-bezier(.16,1,.3,1),filter 1s;transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none;filter:none}.rv.card,.rv.pj{transition:opacity 1s,transform 1.1s cubic-bezier(.16,1,.3,1),filter 1s,border-color .3s;transition-delay:var(--d,0s)}.rv.card.done,.rv.pj.done{transition:transform .25s ease-out,border-color .3s;transition-delay:0s}
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:64px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:28px;padding:38px;overflow:hidden;transform-style:preserve-3d;transition:transform .25s ease-out,border-color .3s;will-change:transform}
+.card:before{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),#ff8a4e2b,transparent 55%);opacity:0;transition:opacity .4s}
+.card:hover:before{opacity:1}.card:hover{border-color:#ff8a4e88}
+.card>*{position:relative}
+.card h3{font-size:34px;letter-spacing:-.03em;line-height:1;margin:18px 0 14px;font-weight:900}
+.card p{color:var(--mut)}
+.card ul{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:9px;font-size:15px}
+.card li:before{content:"→ ";color:var(--acc)}
+.num{font:700 13px "JetBrains Mono",monospace;color:var(--acc);letter-spacing:.2em}
+/* work */
+.work{display:grid;grid-template-columns:1.25fr 1fr;gap:20px;margin-top:64px}
+@media(max-width:900px){.work{grid-template-columns:1fr}}
+.pj{border-radius:28px;overflow:hidden;position:relative;min-height:420px;border:1px solid var(--line);background:var(--card);display:flex;align-items:flex-end;padding:34px;transition:transform .3s ease-out;will-change:transform}
+.pj .art{position:absolute;inset:0;transition:transform 1.2s cubic-bezier(.16,1,.3,1)}
+.pj:hover .art{transform:scale(1.12) rotate(1.5deg)}
+.pj .t{position:relative;z-index:2;background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(10px);padding:18px 22px;border-radius:18px;border:1px solid var(--line)}
+.pj .t b{display:block;font-size:24px;letter-spacing:-.03em}
+.a1{background:radial-gradient(circle at 20% 20%,#ff8a4e,transparent 55%),radial-gradient(circle at 85% 70%,#ff5fd2,transparent 55%),#1a1210}
+.a2{background:radial-gradient(circle at 70% 25%,#6c5cff,transparent 55%),radial-gradient(circle at 20% 80%,#22d3ee,transparent 55%),#0e1220}
+.a3{background:radial-gradient(circle at 30% 30%,#3ddc84,transparent 55%),radial-gradient(circle at 80% 80%,#ffc45c,transparent 50%),#101510}
+.pj.big{grid-row:span 2}@media(max-width:900px){.pj.big{grid-row:auto}}
+/* process */
+.steps{margin-top:64px;border-top:1px solid var(--line)}
+.st{display:grid;grid-template-columns:90px 1fr 1.2fr;gap:24px;align-items:center;padding:34px 0;border-bottom:1px solid var(--line);position:relative;transition:padding .4s}
+.st:before{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:0;background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width .8s cubic-bezier(.16,1,.3,1)}
+.st:hover:before{width:100%}.st:hover{padding-left:18px}
+.st h3{font-size:clamp(28px,4vw,52px);letter-spacing:-.04em;line-height:1}
+.st p{color:var(--mut)}
+@media(max-width:800px){.st{grid-template-columns:1fr;gap:8px}}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:64px;text-align:center}
+.stats b{display:block;font-size:clamp(54px,9vw,130px);letter-spacing:-.05em;line-height:1;font-weight:900}
+@media(max-width:700px){.stats{grid-template-columns:1fr}}
+/* order */
+.order{background:var(--card);border-block:1px solid var(--line)}
+.fm{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;margin-top:20px}
+@media(max-width:900px){.fm{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 22px}
+.chips label{padding:11px 18px;border:1.5px solid var(--line);border-radius:40px;font-weight:500;transition:.3s;font-size:15px;user-select:none}
+.chips input{position:absolute;opacity:0;pointer-events:none}.chips label{position:relative}.chips label:has(input:focus-visible){outline:2px solid var(--acc);outline-offset:3px}
+.chips label:hover{border-color:var(--acc)}
+.chips input:checked+span{color:var(--acc)}
+.chips label:has(input:checked){border-color:var(--acc);background:#ff8a4e1f;color:var(--acc)}
+.f{display:block;margin-bottom:18px}
+.f input,.f textarea{width:100%;background:none;border:0;border-bottom:1.5px solid var(--line);padding:14px 0;color:var(--fg);font:500 19px "Inter Tight",sans-serif;outline:0;transition:border-color .3s;border-radius:0}
+.f input:focus,.f textarea:focus{border-color:var(--acc)}
+.f textarea{resize:none;height:90px}
+.ct{display:grid;gap:14px;margin-top:34px}
+.ct a{display:flex;justify-content:space-between;padding:20px 24px;border:1px solid var(--line);border-radius:20px;transition:.3s;background:var(--bg)}
+.ct a:hover{border-color:var(--acc);transform:translateX(8px)}
+.hint{color:var(--mut);font-size:14px;margin-top:14px}
+/* footer */
+footer{padding:80px 0 50px}
+.fg{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+.pw{display:flex;align-items:center;gap:14px}
+.pw svg{width:52px;height:52px}
+.mega{white-space:nowrap;font-size:clamp(34px,9.4vw,128px);font-weight:900;letter-spacing:-.07em;line-height:.85;margin-top:60px;text-align:center;user-select:none}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--acc),var(--acc2));z-index:200}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition-duration:.01s!important}}
+</style>
+</head>
+<body class="lock">
+<svg width="0" height="0" style="position:absolute"><defs>
+<linearGradient id="gr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8a4e"/><stop offset="1" stop-color="#ff5fd2"/></linearGradient>
+<symbol id="mark" viewBox="0 0 100 100"><rect width="100" height="100" rx="28" fill="url(#gr)"/><path d="M24 74V26h20a13 13 0 0 1 0 26H24m18 0 14 22" fill="none" stroke="#1a0d06" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M58 74 70 26l12 48M63 60h14" fill="none" stroke="#1a0d06" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="84" cy="18" r="5" fill="#fff"/></symbol>
+<symbol id="prod" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="#14061a" stroke="url(#gr)" stroke-width="3"/><rect x="26" y="22" width="48" height="40" rx="12" fill="url(#gr)"/><text x="50" y="52" text-anchor="middle" font-family="Inter Tight,sans-serif" font-weight="900" font-style="italic" font-size="26" fill="#1a0d06">RA</text><text x="50" y="78" text-anchor="middle" font-family="JetBrains Mono,monospace" font-weight="700" font-size="8.5" letter-spacing="1.5" fill="#fff">PRODUCTION</text><path d="M62 24l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#fff"/></symbol>
+</defs></svg>
+<div id="pre"><i></i><i></i><div class="c"><svg viewBox="0 0 100 100"><rect class="p" x="6" y="6" width="88" height="88" rx="26" fill="none" stroke="url(#gr)" stroke-width="3"/><use href="#mark" x="22" y="22" width="56" height="56" style="opacity:0;animation:fi .6s 1s forwards"/></svg><b id="pc">000</b></div></div>
+<style>@keyframes fi{to{opacity:1}}</style>
+<div id="bar"></div><div class="spot" id="spot"></div><canvas id="trail"></canvas><div class="cur" id="cur"></div><div class="ring" id="ring"></div>
+
+<nav id="nav"><div class="wrap">
+<a href="#top" class="logo"><svg><use href="#mark"/></svg><span>RA Web Studios<small>Powered by RA Production</small></span></a>
+<div class="links"><a href="#services" data-s>Services</a><a href="#work" data-s>Work</a><a href="#process" data-s>Process</a><a href="#order" class="btn" data-mag style="padding:11px 22px">Start a project</a><button class="tg" id="tg" aria-label="Toggle theme"></button></div>
+</div></nav>
+
+<header class="hero" id="top">
+<canvas id="mesh"></canvas>
+<div class="wrap" id="hw">
+<div class="badge rv"><i></i><span class="mono" style="color:var(--fg)">Now taking new orders</span></div>
+<h1><span class="w"><span>Websites</span></span> <span class="w"><span>that</span></span><br><span class="w"><span>look</span></span> <span class="w"><span><em class="g">expensive.</em></span></span><br><span class="w"><span>Work</span></span> <span class="w"><span>harder.</span></span></h1>
+<p class="lead rv" style="--d:.5s">RA Web Studios designs and builds premium portfolio and business websites, custom coded, animated and made to win you clients.</p>
+<div class="cta rv" style="--d:.65s"><a href="#order" class="btn" data-mag data-cur="Order">Order your website →</a><a href="#work" class="btn o" data-mag>See what we build</a></div>
+</div>
+<div class="float" id="fl"><div class="win" id="winh"><div class="bar"><b></b><b></b><b></b></div><div class="bd"><div class="ln" style="width:30%"></div><div class="ln b"></div><div class="ln" style="width:58%"></div><div class="tl"><div></div><div></div><div></div><div></div><div></div><div></div></div></div></div></div>
+<span class="mono scrollcue">Scroll ↓</span>
+</header>
+
+<div class="mq"><div><span>Portfolio Websites</span><span>✦</span><span>Business Websites</span><span>✦</span><span>Premium Animations</span><span>✦</span><span>Mobile First</span><span>✦</span><span>Portfolio Websites</span><span>✦</span><span>Business Websites</span><span>✦</span><span>Premium Animations</span><span>✦</span><span>Mobile First</span><span>✦</span></div></div>
+
+<section id="services"><div class="wrap">
+<span class="mono rv">01 / What we build</span>
+<h2 class="rv" style="margin-top:18px">Two kinds of sites.<br><em class="g">Zero templates.</em></h2>
+<div class="grid">
+<div class="card tilt rv" data-cur="Order"><span class="num">01</span><h3>Portfolio <em class="g">websites</em></h3><p>For creators, editors, designers and freelancers who want their work to hit like a showreel.</p><ul><li>Cinematic intro and smooth scrolling</li><li>Project showcases that feel alive</li><li>Built to get you hired</li></ul></div>
+<div class="card tilt rv" style="--d:.12s" data-cur="Order"><span class="num">02</span><h3>Business <em class="g">websites</em></h3><p>For shops, brands, schools and services that need trust at first glance and orders after.</p><ul><li>Clear services, offers and contact flow</li><li>WhatsApp and call-to-action built in</li><li>Built to get you customers</li></ul></div>
+<div class="card tilt rv" style="--d:.24s" data-cur="Order"><span class="num">03</span><h3>Custom <em class="g">builds</em></h3><p>Landing pages, product launches and special interactive sites for one big moment.</p><ul><li>Unique animation and cursor effects</li><li>Dark and light themes</li><li>Fast, responsive, SEO-ready</li></ul></div>
+</div></div></section>
+
+<section id="work" style="padding-top:20px"><div class="wrap">
+<span class="mono rv">02 / Selected work</span>
+<h2 class="rv" style="margin-top:18px">Built to be <em class="g">remembered.</em></h2>
+<div class="work">
+<div class="pj big tilt rv" data-cur="View"><div class="art a1"></div><div class="t"><span class="mono">Portfolio website</span><b>RA Production</b>Cinematic creator portfolio with film HUD intro, timeline hero and dark/light mode.</div></div>
+<div class="pj tilt rv" style="--d:.12s" data-cur="View"><div class="art a2"></div><div class="t"><span class="mono">Business website</span><b>Your brand here</b>Your business, presented premium.</div></div>
+<div class="pj tilt rv" style="--d:.24s" data-cur="You?"><div class="art a3"></div><div class="t"><span class="mono">Next up</span><b>Your project</b>Let's make it the next one.</div></div>
+</div></div></section>
+
+<section id="process" style="padding-top:20px"><div class="wrap">
+<span class="mono rv">03 / How it works</span>
+<h2 class="rv" style="margin-top:18px">From idea to <em class="g">live</em> site.</h2>
+<div class="steps">
+<div class="st rv"><span class="num">01</span><h3>Brief</h3><p>Tell us about your brand, goals and the sites you love. Takes two minutes.</p></div>
+<div class="st rv"><span class="num">02</span><h3>Design</h3><p>We craft the look, layout and animation direction around your brand.</p></div>
+<div class="st rv"><span class="num">03</span><h3>Build</h3><p>Custom code, smooth motion, mobile-first, tested on every screen.</p></div>
+<div class="st rv"><span class="num">04</span><h3>Launch</h3><p>Your site goes live, ready to impress and bring in orders.</p></div>
+</div>
+<div class="stats">
+<div class="rv"><b class="g"><span data-n="100">0</span>%</b><span class="mono">Custom code</span></div>
+<div class="rv" style="--d:.12s"><b class="g"><span data-n="0">0</span></b><span class="mono">Templates used</span></div>
+<div class="rv" style="--d:.24s"><b class="g"><span data-n="5">0</span>+</b><span class="mono">Years creating</span></div>
+</div></div></section>
+
+<section id="order" class="order"><div class="wrap">
+<span class="mono rv">04 / Start your project</span>
+<h2 class="rv" style="margin-top:18px">Let's build <em class="g">yours.</em></h2>
+<div class="fm">
+<form id="of" class="rv" autocomplete="off">
+<span class="mono">I need a</span>
+<div class="chips"><label><input type="radio" name="t" value="Portfolio website" checked><span>Portfolio website</span></label><label><input type="radio" name="t" value="Business website"><span>Business website</span></label><label><input type="radio" name="t" value="Landing page"><span>Landing page</span></label><label><input type="radio" name="t" value="Custom build"><span>Custom build</span></label></div>
+<label class="f"><span class="mono">Your name</span><input id="nm" required placeholder="Type your name"></label>
+<label class="f"><span class="mono">Brand or business</span><input id="br" placeholder="What is it called?"></label>
+<label class="f"><span class="mono">Tell us about it</span><textarea id="ms" placeholder="What should the site do? Any sites you love?"></textarea></label>
+<button class="btn" type="submit" data-mag data-cur="Send">Send order on WhatsApp →</button>
+<p class="hint">Opens WhatsApp with your brief filled in, so we reply fast.</p>
+</form>
+<div class="rv" style="--d:.15s"><p style="color:var(--mut);font-size:20px">Prefer to talk first? Reach us directly. We reply fast, and the first mockup idea is on us.</p>
+<div class="ct"><a href="https://wa.me/94727893465" target="_blank" rel="noopener" data-cur="Chat"><span>WhatsApp</span><b>+94 72 789 3465</b></a><a href="mailto:ravinduadiptha@gmail.com" data-cur="Email"><span>Email</span><b>ravinduadiptha@gmail.com</b></a><a href="https://instagram.com/ravinduadiptha" target="_blank" rel="noopener" data-cur="Follow"><span>Instagram</span><b>@ravinduadiptha</b></a></div></div>
+</div></div></section>
+
+<footer><div class="wrap">
+<div class="fg"><a href="#top" class="logo"><svg><use href="#mark"/></svg><span>RA Web Studios<small>Sri Lanka</small></span></a>
+<div class="pw"><svg><use href="#prod"/></svg><span class="mono" style="color:var(--fg)">Powered by<br>RA Production</span></div></div>
+<div class="mega" data-scr>RA WEB STUDIOS</div>
+<p class="mono" style="text-align:center;margin-top:40px">© 2026 RA Web Studios · Powered by RA Production</p>
+</div></footer>
+
+<script>
+(function(){
+var $=function(s,c){return(c||document).querySelector(s)},$$=function(s,c){return[].slice.call((c||document).querySelectorAll(s))};
+var fine=matchMedia('(pointer:fine)').matches,rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+/* preloader */
+var pc=$('#pc'),n=0,t0=performance.now();
+(function c(t){var k=Math.min(1,(t-t0)/1600);pc.textContent=('00'+Math.round(k*100)).slice(-3);if(k<1)requestAnimationFrame(c);else{$('#pre').classList.add('go');document.body.classList.remove('lock');setTimeout(function(){$('#pre').style.display='none'},1600);setTimeout(function(){$('#hw').classList.add('in');$$('.hero .rv').forEach(function(e){e.classList.add('in')})},350)}})(t0);
+/* theme */
+$('#tg').onclick=function(){var r=document.documentElement;r.setAttribute('data-mode',r.getAttribute('data-mode')==='light'?'dark':'light')};
+/* reveal */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');setTimeout(function(t){t.classList.add('done')},1500,e.target);io.unobserve(e.target);var s=$('[data-n]',e.target);if(s)cnt(s)}})},{threshold:.15});
+$$('.rv').forEach(function(e){if(!e.closest('.hero'))io.observe(e)});
+function cnt(s){var to=+s.dataset.n,t0=performance.now();(function f(t){var k=Math.min(1,(t-t0)/1600);s.textContent=Math.round(to*(1-Math.pow(1-k,4)));if(k<1)requestAnimationFrame(f)})(t0)}
+/* scroll */
+var nav=$('#nav'),bar=$('#bar'),lastY=0;
+addEventListener('scroll',function(){var y=scrollY;nav.classList.toggle('s',y>40);bar.style.width=(y/(document.documentElement.scrollHeight-innerHeight)*100)+'%'},{passive:true});
+/* scramble */
+var CH='!<>-_\\/[]{}=+*^?#ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+function scr(el){var o=el.dataset.o||(el.dataset.o=el.textContent),i=0;clearInterval(el._t);el._t=setInterval(function(){el.textContent=o.split('').map(function(c,k){return c===' '?' ':(k<i?o[k]:CH[Math.random()*CH.length|0])}).join('');i+=.6;if(i>=o.length){el.textContent=o;clearInterval(el._t)}},28)}
+$$('[data-s]').forEach(function(a){a.addEventListener('mouseenter',function(){scr(a)})});
+var bg=$('[data-scr]');bg.addEventListener('mouseenter',function(){scr(bg)});
+/* smooth anchor */
+$$('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=$(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
+/* order form */
+$('#of').addEventListener('submit',function(e){e.preventDefault();var t=($('input[name=t]:checked')||{}).value,m='Hi RA Web Studios! I want to order a *'+t+'*.\nName: '+$('#nm').value+'\nBrand: '+($('#br').value||'-')+'\nDetails: '+($('#ms').value||'-');open('https://wa.me/94727893465?text='+encodeURIComponent(m),'_blank')});
+if(!fine||rm)return;document.documentElement.classList.add('cc');
+/* cursor */
+var cur=$('#cur'),ring=$('#ring'),sp=$('#spot'),tr=$('#trail'),cx=tr.getContext('2d'),mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,pts=[];
+function rs(){tr.width=innerWidth;tr.height=innerHeight}rs();addEventListener('resize',rs);
+addEventListener('mousemove',function(e){document.documentElement.classList.add('mv');mx=e.clientX;my=e.clientY;cur.style.transform='translate('+mx+'px,'+my+'px)';sp.style.setProperty('--x',mx+'px');sp.style.setProperty('--y',my+'px');pts.push({x:mx,y:my,a:1})});
+addEventListener('mousedown',function(){ring.classList.add('d')});addEventListener('mouseup',function(){ring.classList.remove('d')});
+document.addEventListener('mouseover',function(e){var t=e.target.closest('[data-cur]'),h=e.target.closest('a,button,label,input,textarea');ring.classList.toggle('v',!!t);ring.classList.toggle('h',!t&&!!h);ring.textContent=t?t.dataset.cur:''});
+(function loop(){rx+=(mx-rx)*.16;ry+=(my-ry)*.16;ring.style.transform='translate('+rx+'px,'+ry+'px)';cx.clearRect(0,0,tr.width,tr.height);for(var i=pts.length-1;i>=0;i--){var p=pts[i];p.a-=.035;if(p.a<=0){pts.splice(i,1);continue}cx.beginPath();cx.arc(p.x,p.y,5*p.a,0,7);cx.fillStyle='rgba(255,'+(95+p.a*43|0)+','+(210-p.a*130|0)+','+p.a*.45+')';cx.fill()}requestAnimationFrame(loop)})();
+/* magnetic */
+$$('[data-mag]').forEach(function(b){b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+(e.clientX-r.left-r.width/2)*.3+'px,'+(e.clientY-r.top-r.height/2)*.4+'px)'});b.addEventListener('mouseleave',function(){b.style.transform=''})});
+/* tilt + spotlight */
+$$('.tilt').forEach(function(c){c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%');c.style.transform='perspective(900px) rotateY('+(x-.5)*10+'deg) rotateX('+(.5-y)*10+'deg) translateZ(6px)'});c.addEventListener('mouseleave',function(){c.style.transform=''})});
+/* hero window parallax */
+var fl=$('#fl'),wn=$('#winh');
+addEventListener('mousemove',function(e){var x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;wn.style.transform='perspective(1000px) rotateY('+x*-18+'deg) rotateX('+y*14+'deg)';fl.style.translate=x*-30+'px '+y*-24+'px'});
+/* mesh */
+var m=$('#mesh'),g=m.getContext('2d'),bl=[[.8,.3,'255,138,78',.5],[.2,.8,'255,95,210',.45],[.55,.55,'110,80,255',.3]],pos=bl.map(function(b){return[b[0],b[1]]});
+function mr(){m.width=innerWidth/2;m.height=innerHeight/2}mr();addEventListener('resize',mr);
+(function d(t){g.clearRect(0,0,m.width,m.height);bl.forEach(function(b,i){var tx=i===0?mx/innerWidth:b[0]+Math.sin(t/2200+i)*.12,ty=i===0?my/innerHeight:b[1]+Math.cos(t/2600+i)*.1;if(i===2){tx=1-mx/innerWidth;ty=1-my/innerHeight}pos[i][0]+=(tx-pos[i][0])*.03;pos[i][1]+=(ty-pos[i][1])*.03;var X=pos[i][0]*m.width,Y=pos[i][1]*m.height,r=Math.max(m.width,m.height)*b[3],gr=g.createRadialGradient(X,Y,0,X,Y,r);gr.addColorStop(0,'rgba('+b[2]+',.55)');gr.addColorStop(1,'rgba('+b[2]+',0)');g.fillStyle=gr;g.fillRect(0,0,m.width,m.height)});requestAnimationFrame(d)})(0);
+})();
+</script>
+</body>
+</html>
